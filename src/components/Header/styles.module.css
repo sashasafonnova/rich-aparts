@@ -1,0 +1,42 @@
+.header {
+   background-color: var(--decor-color-1);
+   padding: 28px 0px;
+   font-size: 16px;
+   color: var(--title-color);
+   font-weight: 400;
+   white-space: nowrap;
+}
+
+.nav {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+
+
+.menuBurgerBtn {
+   display: none;
+}
+
+
+
+
+
+@media (max-width: 960px) {
+   .elemWrapper  {
+      display: none;
+   }
+
+   .menuBurgerBtn {
+      display: block;
+   }
+
+   .header {
+      padding: 14px 0px 0px 0px;
+   }
+}
+
+
+
+

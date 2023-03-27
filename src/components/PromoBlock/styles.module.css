@@ -1,0 +1,101 @@
+.block {
+   background-color: var(--decor-color-1);
+   margin-bottom: 180px;
+}
+
+
+
+.content {
+   display: flex;
+   position: relative;
+   align-items: flex-end;
+}
+
+
+
+.textBlock {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   padding: 15vh 0px 25vh;
+   z-index: 1;
+}
+
+
+.title {
+   margin-bottom: 30px;
+   max-width: 90vw;
+}
+
+
+.text {
+   margin-bottom: 50px;
+   width: 90%;
+   max-width: 55vw;
+}
+
+
+.buttons {
+   display: flex;
+   align-items: center;
+}
+
+
+.btnCatalog {
+   margin-right: 40px;
+   padding: 16px;
+   background-color: var(--btn-color);
+   color: #fff;
+   box-shadow: 0px 4px 12px rgba(21, 21, 21, 0.15);
+   border-radius: 5px;
+}
+
+
+
+
+.btnInfo {
+   background: transparent;
+   padding: 16px;
+   color: var(--title-color);
+   font-weight: 400;
+}
+
+
+.bgImg {
+   width: 50%;
+}
+
+.bgImg img {
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+   object-position: right bottom;
+}
+
+
+
+
+@media (max-width: 1200px) {
+   .bgImg {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+   }
+}
+
+
+
+
+@media (max-width: 850px) {
+   .buttons {
+      flex-direction: column;
+      align-items: flex-start;
+   }
+}
+
+
+@media (max-width: 680px) {
+   .text {
+      max-width: none;
+   }
+}

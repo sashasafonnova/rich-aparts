@@ -1,0 +1,31 @@
+.goBack {
+   background: transparent;
+   margin-top: 40px;
+   padding: 10px;
+   color: var(--title-color);
+   font-size: 16px;
+   position: relative;
+}
+
+
+.goBack::after {
+   content: "";
+   position: absolute;
+   left: 10px;
+   bottom: 10px;
+   background-color: #D5D5D5;
+   width: 80%;
+   height: 1px;
+}
+
+
+.title {
+   margin-bottom: 20px;
+   text-align: center;
+}
+
+
+.text {
+   min-height: 60vh;
+}
+

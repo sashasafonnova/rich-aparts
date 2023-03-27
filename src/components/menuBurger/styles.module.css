@@ -1,0 +1,41 @@
+.menu {
+   min-height: 100vh;
+   background-color: rgba(234, 239, 246, 0.95);
+   border-top: 1px solid;
+   border-color: var(--subscribe-bg-color);
+   display: flex;
+   padding: 60px 0px 60px;
+   flex-direction: column;
+   align-items: center;
+
+   position: absolute;
+   z-index: 10;
+   left: 0;
+   top: 76px;
+   width: 100%;
+}
+
+
+.list {
+   text-align: center;
+   padding-top: 40px;
+}
+
+
+.item {
+   margin-bottom: 10px;
+}
+
+
+.itemActive {
+   color: #597193;
+   text-decoration: underline;
+}
+
+
+
+@media (min-width: 960px) {
+   .menuBurger {
+      display: none;
+   }
+}

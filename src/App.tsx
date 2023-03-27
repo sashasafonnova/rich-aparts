@@ -1,24 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
 
-function App() {
+
+import Header from './components/Header';
+import FormQuestionBlock from './components/FormQuestionBlock';
+import SubscribeBlock from './components/SubscribeBlock';
+import Footer from './components/Footer';
+import FooterBottom from './components/FooterBottom';
+import MainPage from './pages/Main';
+import CatalogPage from './pages/Catalog';
+import BonusesPage from './pages/Bonuses';
+import ContactsPage from './pages/Contacts';
+
+
+
+const App: React.FC = () => {
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="wrapper">
+        <Header />
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/catalog" element={<CatalogPage />} />
+          <Route path="/bonuses" element={<BonusesPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
+
+        </Routes>
+        <FormQuestionBlock />
+        <SubscribeBlock />
+        <Footer />
+        <FooterBottom />
+      </div>
     </div>
   );
 }

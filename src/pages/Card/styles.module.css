@@ -1,0 +1,188 @@
+.card {
+   display: flex;
+   align-items: flex-start;
+   padding: 50px 0px 80px;
+   border-bottom: 1px solid rgba(171, 171, 171, 0.5);
+}
+
+
+.goBack {
+   background: transparent;
+   margin-top: 40px;
+   padding: 10px;
+   color: var(--title-color);
+   font-size: 16px;
+   position: relative;
+}
+
+
+.goBack::after {
+   content: "";
+   position: absolute;
+   left: 10px;
+   bottom: 10px;
+   background-color: #D5D5D5;
+   width: 80%;
+   height: 1px;
+}
+
+
+.img {
+   max-width: 50%;
+}
+
+.img img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+
+.info {
+   padding: 0px 20px 0px 46px;
+}
+
+
+.details {
+   display: flex;
+   align-items: center;
+   margin-bottom: 20px;
+   font-size: 14px;
+   white-space: nowrap;
+}
+
+
+
+.detailsItem {
+   display: flex;
+   align-items: center;
+   margin-right: 16px;
+}
+
+
+.detailsImg {
+   margin-right: 5px;
+}
+
+
+
+.city {
+   margin-bottom: 5px;
+   font-size: 14px;
+}
+
+
+
+.title {
+   margin-bottom: 6px;
+   font-size: 24px;
+   color: var(--title-color);
+}
+
+
+
+.subtitle {
+   margin-bottom: 14px;
+   font-size: 14px;
+}
+
+
+.description {
+   margin-bottom: 8px;
+   font-size: 16px;
+}
+
+
+
+
+.facilities {
+   font-size: 14px;
+   margin-bottom: 12px;
+   background: transparent;
+   font-weight: inherit;
+   display: flex;
+   align-items: center;
+   
+}
+
+.facilitiesIcon {
+   font-weight: 700;
+   margin-left: 8px;
+   font-size: 10px;
+   padding: 3px;
+   width: 18px;
+   height: 18px;
+   border-radius: 50%;
+   background-color: var(--decor-color-1);
+}
+
+
+
+.facilitiesList {
+   font-size: 12px;
+   padding: 10px 20px;
+   max-width: 50%;
+   background-color: var(--decor-color-1);
+   border-radius: 2px;
+}
+
+
+.facilitiesList li {
+   position: relative;
+   padding-left: 5px;
+}
+
+.facilitiesList li::before {
+   content: "";
+   position: absolute;
+   left: -5px;
+   top: 6px;
+   width: 3px;
+   height: 3px;
+   border-radius: 50%;
+   background-color: var(--title-color);
+}
+
+
+.price {
+   font-weight: 400;
+   color: var(--title-color);
+   margin-top: 8px;
+   margin-bottom: 16px;
+}
+
+.price span {
+   font-size: 24px;
+}
+
+
+.btnBooking {
+   padding: 16px;
+   margin-right: 30px;
+   color: var(--title-color);
+   border: 1px solid;
+   border-radius: 2px;
+   border-color: var(--item-border-color);
+   background: transparent;
+}
+
+
+
+
+@media (max-width: 760px) {
+   .card {
+      flex-direction: column;
+   }
+
+   .info {
+      padding: 20px 20px 20px 0px;
+   }
+
+   .img {
+      max-width: 80%;
+   }
+}
+
+
+
+
