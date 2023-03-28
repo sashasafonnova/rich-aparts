@@ -18,7 +18,7 @@ const MainPage: React.FC = () => {
    return (
       <>
          <PromoBlock />
-         <ApartsBlock title={"Cейчас свободны"} text="Забронируйте понравившуюся квартиру в один клик"/>
+         <ApartsBlock title={"Cейчас свободны"} text="Забронируйте понравившуюся квартиру в один клик."/>
          <AboutBlock />
          <AdvantagesBlock />
          <ReviewsBlock />

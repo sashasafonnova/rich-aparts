@@ -1,0 +1,98 @@
+.block {
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(255, 255, 255, 0.8);
+   z-index: 20;
+}
+
+
+.window {
+   min-height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 30px;
+}
+
+.content {
+   padding: 50px 50px 30px 50px;
+   background-color: var(--form-bg-color);
+   border-radius: 5px;
+   font-size: 14px;
+   color: var(--title-color);
+   position: relative;
+   max-width: 400px;
+}
+
+
+
+.close {
+   position: absolute;
+   right: 10px;
+   top: 10px;
+   padding: 10px;
+   background: transparent;
+}
+
+.subtitle {
+   margin-bottom: 30px;
+
+}
+
+
+.location {
+   margin-bottom: 20px;
+}
+
+
+.location span {
+   font-weight: 700;
+   white-space: nowrap;
+}
+
+
+.title {
+   font-size: 18px;
+   margin-bottom: 20px;
+}
+
+
+.form {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   margin-bottom: 20px;
+   width: 100%;
+}
+
+
+
+.input {
+   background: transparent;
+   border-bottom: 1px solid;
+   border-color: var(--text-color);
+   width: 100%;
+   padding: 4px 4px 4px 0px;
+   margin-bottom: 15px;
+}
+
+
+.btnSend {
+   margin-top: 20px;
+   padding: 10px 20px;
+   background: transparent;
+   color: inherit;
+   border: 1px solid;
+   border-color: var(--text-color);
+   border-radius: 2px;
+}
+
+
+
+
+@media (max-width: 380px) {
+   .content {
+      padding: 50px 30px 30px 30px;
+   }
+}
