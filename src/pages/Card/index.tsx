@@ -8,6 +8,7 @@ import iconRoom from '../../assets/img/card/icons/iconRoom.svg';
 import iconBathroom from '../../assets/img/card/icons/iconBathroom.svg';
 import CardReviews from "../../components/UI/CardReviews";
 import ApartsBlock from "../../components/UI/ApartsBlock";
+import ArrowBack from "../../components/UI/ArrowBack";
 
 const CardPage: React.FC = () => {
 
@@ -23,7 +24,7 @@ const CardPage: React.FC = () => {
    return (
       <section>
          <div className="container">
-            <button className={styles.goBack}>← Назад</button>
+            <ArrowBack />
             <div className={styles.card}>
                <div className={styles.img}>
                   <img src={itemIMG} alt="itemImg" />

@@ -17,6 +17,7 @@ import ContactsPage from './pages/Contacts';
 import { useSelector } from 'react-redux';
 import { RootState } from './redux/store';
 import ModalBooking from './components/ModalBooking';
+import NotFound from './pages/NotFound';
 
 
 const App: React.FC = () => {
@@ -35,6 +36,8 @@ const App: React.FC = () => {
           <Route path="/catalog" element={<CatalogPage />} />
           <Route path="/bonuses" element={<BonusesPage />} />
           <Route path="/contacts" element={<ContactsPage />} />
+          <Route path="/*" element={<NotFound />} />
+
 
         </Routes>
         {/* <CardPage /> */}

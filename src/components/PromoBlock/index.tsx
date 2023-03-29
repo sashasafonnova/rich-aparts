@@ -5,7 +5,12 @@ import bgImg from './bg.png';
 import { Link } from "react-router-dom";
 
 
-const PromoBlock: React.FC = () => {
+type PromoBlockProps = {
+   aboutScroll: () => void;
+}
+
+
+const PromoBlock: React.FC<PromoBlockProps> = ( {aboutScroll} ) => {
 
    return (
       <section className={styles.block}>
@@ -16,7 +21,7 @@ const PromoBlock: React.FC = () => {
                   <p className={styles.text}>Сеть премиальных аппартментов по всей России с возможностью аренды посуточно </p>
                   <div className={styles.buttons}>
                      <Link to="/catalog" className={styles.btnCatalog}>Смотреть каталог</Link>
-                     <button className={styles.btnInfo}>Подробнее</button>
+                     <button className={styles.btnInfo} onClick={aboutScroll}>Подробнее</button>
                   </div>
                </div>
                <div className={styles.bgImg}>

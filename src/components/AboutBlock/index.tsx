@@ -6,11 +6,15 @@ import { Link } from "react-router-dom";
 
 import aboutImg from "./about.jpg";
 
+type AboutBlockProps = {
+   aboutRef: React.RefObject<HTMLElement>;
+}
 
-const AboutBlock: React.FC = () => {
+
+const AboutBlock: React.FC<AboutBlockProps> = React.forwardRef(({ aboutRef} ) => {
 
    return (
-      <section className={styles.block}>
+      <section className={styles.block} ref={aboutRef}>
          <div className="container">
             <div className={styles.mainContent}>
                <div className={styles.textBlock}>
@@ -43,6 +47,6 @@ const AboutBlock: React.FC = () => {
          </div>
       </section>
    );
-}
+})
 
 export default AboutBlock;

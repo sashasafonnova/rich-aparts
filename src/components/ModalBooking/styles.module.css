@@ -67,6 +67,14 @@
 }
 
 
+.item {
+   width: 100%;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+}
+
+
 
 .input {
    background: transparent;
@@ -74,7 +82,7 @@
    border-color: var(--text-color);
    width: 100%;
    padding: 4px 4px 4px 0px;
-   margin-bottom: 15px;
+   margin-bottom: 20px;
 }
 
 
@@ -86,6 +94,16 @@
    border: 1px solid;
    border-color: var(--text-color);
    border-radius: 2px;
+}
+
+
+
+.error {
+   position: absolute;
+   bottom: 0px;
+   left: 0px;
+   color: red;
+   font-size: 10px;
 }
 
 

@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./styles.module.css";
 import formImg from './formImg.jpg'
-
 import { useForm, SubmitHandler } from "react-hook-form";
 
 

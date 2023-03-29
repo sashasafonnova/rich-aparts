@@ -10,16 +10,23 @@ import ReviewsBlock from "../../components/ReviewsBlock";
 
 const MainPage: React.FC = () => {
 
+   const aboutRef = React.useRef<HTMLElement>(null);
+
+   const aboutScroll = () => {
+      aboutRef.current && aboutRef.current.scrollIntoView(); 
+   }
+
 
    useEffect(() => {
       window.scrollTo(0, 0);
    }, []);
 
+   
    return (
       <>
-         <PromoBlock />
+         <PromoBlock aboutScroll={aboutScroll}/>
          <ApartsBlock title={"Cейчас свободны"} text="Забронируйте понравившуюся квартиру в один клик."/>
-         <AboutBlock />
+         <AboutBlock aboutRef={aboutRef}/>
          <AdvantagesBlock />
          <ReviewsBlock />
       </>

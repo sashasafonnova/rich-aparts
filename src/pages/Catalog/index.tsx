@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 
 import ApartsBlock from "../../components/UI/ApartsBlock";
+import ArrowBack from "../../components/UI/ArrowBack";
 import styles from "./styles.module.css";
 
 
@@ -17,7 +18,7 @@ const CatalogPage: React.FC = () => {
       <section className={styles.block}>
          <div className="container">
             <div className={styles.content}>
-               <button className={styles.goBack}>← Назад</button>
+               <ArrowBack />
                <h2 className={styles.title}>Поиск по каталогу</h2>
                <form className={styles.form}>
                   <div className={styles.formItem}>
