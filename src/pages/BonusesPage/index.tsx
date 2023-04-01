@@ -6,7 +6,7 @@ import { showModalWindow } from "../../redux/slices/singInSlice";
 import ArrowBack from "../../components/UI/ArrowBack";
 
 
-const Bonuses: React.FC = () => {
+const BonusesPage: React.FC = () => {
 
    const dispatch = useDispatch();
 
@@ -37,4 +37,4 @@ const Bonuses: React.FC = () => {
    );
 }
 
-export default Bonuses;
+export default BonusesPage;

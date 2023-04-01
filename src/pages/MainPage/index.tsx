@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
+
 import AboutBlock from "../../components/AboutBlock";
 import AdvantagesBlock from "../../components/AdvantagesBlock";
-import ApartsBlock from "../../components/UI/ApartsBlock";
+import ApartamentsBlock from "../../components/ProductsBlock";
 import PromoBlock from "../../components/PromoBlock";
 import ReviewsBlock from "../../components/ReviewsBlock";
 
@@ -25,7 +26,7 @@ const MainPage: React.FC = () => {
    return (
       <>
          <PromoBlock aboutScroll={aboutScroll}/>
-         <ApartsBlock title={"Cейчас свободны"} text="Забронируйте понравившуюся квартиру в один клик."/>
+         <ApartamentsBlock title={"Cейчас свободны"} text="Забронируйте понравившуюся квартиру в один клик."/>
          <AboutBlock aboutRef={aboutRef}/>
          <AdvantagesBlock />
          <ReviewsBlock />

@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./styles.module.css";
+import { Link } from "react-router-dom";
 
-import itemIMG from '../../../assets/img/card/itemImg.jpg';
+
 
 import iconSize from '../../../assets/img/card/icons/iconSize.svg';
 import iconRoom from '../../../assets/img/card/icons/iconRoom.svg';
@@ -12,9 +13,9 @@ import { showModalBooking, chooseLocation } from "../../../redux/slices/bookingS
 
 
 
-export type CatalogItemProps = {
-   item: {
-      id: number;
+type ProductCardProps = {
+   product: {
+      id: string;
       city: string;
       name: string;
       rooms: number;
@@ -25,13 +26,13 @@ export type CatalogItemProps = {
       };
       description: string;
       faciliies: string[];
-      imgUrl: string;
+      imgUrl: string[];
       price: number;
    }
 }
 
 
-const CatalogItem: React.FC<CatalogItemProps> = ( {item} ) => {
+const ProductCard: React.FC<ProductCardProps> = ( {product} ) => {
 
    const onClickBooking = (name: string) => {
       dispatch(showModalBooking(true));
@@ -44,35 +45,35 @@ const CatalogItem: React.FC<CatalogItemProps> = ( {item} ) => {
 
    return (
       <div className={styles.item}>
-         <div className={styles.img}>
-            <img src={item.imgUrl} alt="img" />
-         </div>
+         <Link to={`/catalog/${product.id}`} className={styles.img}>
+            <img src={product.imgUrl[0]} alt="img" />
+         </Link>
          <div className={styles.main}>
-            <p className={styles.city}>{`г. ${item.city}`}</p>
-            <h3 className={styles.title}>{item.name}</h3>
-            <p className={styles.subtitle}>{`${item.rooms}-комнатная студия`}</p>
+            <p className={styles.city}>{`г. ${product.city}`}</p>
+            <h3 className={styles.title}>{product.name}</h3>
+            <p className={styles.subtitle}>{`${product.rooms}-комнатная студия`}</p>
             <ul className={styles.details}>
                <li className={styles.detailsItem}>
                   <img className={styles.detailsImg} src={iconSize} alt="iconSize" />
-                  <span>{`${item.details.square} кв.м`}</span>
+                  <span>{`${product.details.square} кв.м`}</span>
                </li>
                <li className={styles.detailsItem}>
                   <img className={styles.detailsImg} src={iconRoom} alt="/" />
-                  <span>{item.details.badrooms}</span>
+                  <span>{product.details.badrooms}</span>
                </li>
                <li className={styles.detailsItem}>
                   <img className={styles.detailsImg} src={iconBathroom} alt="/" />
-                  <span>{item.details.bathrooms}</span>
+                  <span>{product.details.bathrooms}</span>
                </li>
             </ul>
-            <p className={styles.price}><span>{`${item.price} р.`}</span> / сутки</p>
+            <p className={styles.price}><span>{`${product.price} р.`}</span> / сутки</p>
             <div className={styles.btns}>
-               <button className={styles.btnBooking} onClick={() => onClickBooking(item.name)}>Забронировать</button>
-               <button className={styles.btnInfo}>Подробнее</button>
+               <button className={styles.btnBooking} onClick={() => onClickBooking(product.name)}>Забронировать</button>
+               <Link to={`/catalog/${product.id}`} className={styles.btnInfo}>Подробнее</Link>
             </div>
          </div>
       </div>
    );
 }
 
-export default CatalogItem;
+export default ProductCard;

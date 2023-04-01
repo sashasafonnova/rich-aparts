@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 
 
 
-const CardReviews: React.FC = () => {
+const ProductReviews: React.FC = () => {
 
    return (
       <section className={styles.block}>
@@ -40,4 +40,4 @@ const CardReviews: React.FC = () => {
    );
 }
 
-export default CardReviews;
+export default ProductReviews;

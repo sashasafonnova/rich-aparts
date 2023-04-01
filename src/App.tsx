@@ -1,5 +1,7 @@
 import React from 'react';
 import { Route, Routes } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import { RootState } from './redux/store';
 
 
 import Header from './components/Header';
@@ -7,17 +9,15 @@ import FormQuestionBlock from './components/FormQuestionBlock';
 import SubscribeBlock from './components/SubscribeBlock';
 import Footer from './components/Footer';
 import FooterBottom from './components/FooterBottom';
-import MainPage from './pages/Main';
-import CatalogPage from './pages/Catalog';
-import CardPage from './pages/Card';
 import ModalSignIn from './components/ModalSignIn';
-import BonusesPage from './pages/Bonuses';
-import ContactsPage from './pages/Contacts';
-
-import { useSelector } from 'react-redux';
-import { RootState } from './redux/store';
 import ModalBooking from './components/ModalBooking';
-import NotFound from './pages/NotFound';
+
+import MainPage from './pages/MainPage';
+import CatalogPage from './pages/CatalogPage';
+import BonusesPage from './pages/BonusesPage';
+import ContactsPage from './pages/ContactsPage';
+import NotFoundPage from './pages/NotFoundPage';
+import ApartamentPage from './pages/ProductPage';
 
 
 const App: React.FC = () => {
@@ -34,13 +34,13 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/catalog" element={<CatalogPage />} />
+          <Route path="/catalog/:apartId" element={<ApartamentPage />} />
           <Route path="/bonuses" element={<BonusesPage />} />
           <Route path="/contacts" element={<ContactsPage />} />
-          <Route path="/*" element={<NotFound />} />
+          <Route path="/*" element={<NotFoundPage />} />
 
 
         </Routes>
-        {/* <CardPage /> */}
         <FormQuestionBlock />
         <SubscribeBlock />
         <Footer />

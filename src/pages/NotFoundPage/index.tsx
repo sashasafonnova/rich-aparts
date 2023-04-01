@@ -1,15 +1,17 @@
 import React, { useEffect } from "react";
-import ArrowBack from "../../components/UI/ArrowBack";
 import styles from "./styles.module.css";
 
+import ArrowBack from "../../components/UI/ArrowBack";
 
 
-const NotFound: React.FC = () => {
+
+const NotFoundPage: React.FC = () => {
 
 
    useEffect(() => {
       window.scrollTo(0, 0);
    }, []);
+   
 
    return (
       <section>
@@ -23,4 +25,4 @@ const NotFound: React.FC = () => {
    );
 }
 
-export default NotFound;
+export default NotFoundPage;

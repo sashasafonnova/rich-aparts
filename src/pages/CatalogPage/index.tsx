@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import ApartsBlock from "../../components/UI/ApartsBlock";
+import ApartsBlock from "../../components/ProductsBlock";
 import ArrowBack from "../../components/UI/ArrowBack";
 import styles from "./styles.module.css";
 
