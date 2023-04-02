@@ -34,10 +34,10 @@ type FetchProductsParams = {
 }
 
 
-const initialState = {
+const initialState: ProductsState = {
    fetchStatus: 'loading',
    products: [],
-} as ProductsState
+}
 
 
 
@@ -78,11 +78,6 @@ export const productsSlice = createSlice({
 
 })
 
-
-
-
-
-export const { } = productsSlice.actions;
 
 export default productsSlice.reducer;
 

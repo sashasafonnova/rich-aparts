@@ -11,10 +11,10 @@ type AboutBlockProps = {
 }
 
 
-const AboutBlock: React.FC<AboutBlockProps> = React.forwardRef(({ aboutRef} ) => {
+const AboutBlock: React.FC<AboutBlockProps> = React.forwardRef(( props, ref ) => {
 
    return (
-      <section className={styles.block} ref={aboutRef}>
+      <section className={styles.block} ref={props.aboutRef}>
          <div className="container">
             <div className={styles.mainContent}>
                <div className={styles.textBlock}>

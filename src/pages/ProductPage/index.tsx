@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 
-import ProductReviews from "../../components/ProductReviews";
+import ProductReviews from "../../components/Product/ProductReviews";
 import ProductsBlock from "../../components/ProductsBlock";
 import ArrowBack from "../../components/UI/ArrowBack";
-import ProductFullCard from "../../components/ProductFullCard";
+import ProductFullCard from "../../components/Product/ProductFullCard";
 import axios from "axios";
 
 

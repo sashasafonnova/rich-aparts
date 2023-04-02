@@ -1,14 +1,14 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { showModalBooking } from "../../redux/slices/bookingSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { changeTypeModal, changeContentModal, changeTimeOutModal } from "../../../redux/slices/modalSlice";
+
 import styles from "./styles.module.css";
 
 import { useForm, SubmitHandler } from "react-hook-form";
+import { RootState } from "../../../redux/store";
 
 
-type ModalBookingProps = {
-   location: string,
-}
+
 
 
 type Inputs = {
@@ -18,35 +18,43 @@ type Inputs = {
 };
 
 
-
-const ModalBooking: React.FC<ModalBookingProps> =  ( {location} ) => {
+const ModalBooking: React.FC =  () => {
 
 
    const dispatch = useDispatch();
+   const locationModal = useSelector((state: RootState) => state.modalSlice?.content?.location)
 
 
-   const onClickModal = () => {
-      dispatch(showModalBooking(false));
-   }
-   const onClickModalWindow = (event: any) => {
+
+   const stopClick = (event: any) => {
       event.stopPropagation();
    }
 
 
    const { register, handleSubmit, formState: { errors }, reset } = useForm<Inputs>({ mode: "onBlur" });
+   
    const onSubmit: SubmitHandler<Inputs> = () => {
       reset();
-      dispatch(showModalBooking(false));
+
+      const modalContent = {
+         message: {
+            title: "Ваши данные успешно отправлены",
+            subtitle: "Наш менеджер свяжется с вами в ближайшее время.",
+         }
+      }
+      dispatch(changeContentModal(modalContent));
+      dispatch(changeTypeModal("formSuccess"));
+      dispatch(changeTimeOutModal(3000));
    }
 
 
    return (
-      <section className={styles.block} onClick={onClickModal}>
+      <section className={styles.block} onClick={() => dispatch(changeTypeModal(null))}>
          <div className={styles.window}>
-            <div className={styles.content} onClick={event => onClickModalWindow(event)}>
-               <button className={styles.close} onClick={() => {dispatch(showModalBooking(false))}}>X</button>
+            <div className={styles.content} onClick={event => stopClick(event)}>
+               <button className={styles.close} onClick={() => dispatch(changeTypeModal(null))}>X</button>
                <h2 className={styles.title}>Забронировать</h2>
-               <p className={styles.location}>Выбранная локация: <span>{location}</span></p>
+               <p className={styles.location}>Выбранная локация: <span>{locationModal?.name}</span></p>
                <p className={styles.subtitle}>Оставьте заявку на бронирование, <br/> и мы свяжемся с вами в течении 5 минут.</p>
                <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                   

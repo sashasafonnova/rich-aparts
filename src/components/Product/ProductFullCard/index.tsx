@@ -1,16 +1,16 @@
 import React from "react";
 import styles from "./styles.module.css";
 import { useDispatch } from "react-redux";
-import { showModalBooking, chooseLocation } from "../../redux/slices/bookingSlice";
+import { changeTypeModal, changeContentModal } from "../../../redux/slices/modalSlice";
 
 
 import CardSlider from "../CardSlider";
-import { ProductsItem } from "../../redux/slices/productsSlice";
+import { ProductsItem } from "../../../redux/slices/productsSlice";
 
 
-import iconSize from '../../assets/img/card/icons/iconSize.svg';
-import iconRoom from '../../assets/img/card/icons/iconRoom.svg';
-import iconBathroom from '../../assets/img/card/icons/iconBathroom.svg';
+import iconSize from '../../../assets/img/card/icons/iconSize.svg';
+import iconRoom from '../../../assets/img/card/icons/iconRoom.svg';
+import iconBathroom from '../../../assets/img/card/icons/iconBathroom.svg';
 
 
 
@@ -28,8 +28,15 @@ const ProductFullCard: React.FC<ProductFullCardProps> = ( {product} ) => {
 
 
    const onClickBtn = (name: string) => {
-      dispatch(showModalBooking(true));
-      dispatch(chooseLocation(name))
+      dispatch(changeTypeModal("booking"));
+
+
+      const contentModal = {
+         location: {
+            name,
+         }
+      }
+      dispatch(changeContentModal(contentModal))
       
    }
 
@@ -65,7 +72,7 @@ const ProductFullCard: React.FC<ProductFullCardProps> = ( {product} ) => {
 
                   <ul className={styles.facilitiesList}>
                      {product.faciliies.map((el: string) => (
-                        <li>{el}</li>
+                        <li key={el}>{el}</li>
                      ))}
                   </ul>
                )}

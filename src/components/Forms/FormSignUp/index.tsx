@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./styles.module.css";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { showModalWindow } from "../../redux/slices/singInSlice";
+import { changeTypeModal } from "../../../redux/slices/modalSlice";
 
 
 
@@ -21,10 +21,12 @@ type Inputs = {
 const FormSignUp: React.FC<FormSignUpProps> = ({ setFormShowing } ) => {
 
    const dispatch = useDispatch();
+
    const { register, handleSubmit, formState: { errors }, reset } = useForm<Inputs>({ mode: "onBlur" });
+
    const onSubmit: SubmitHandler<Inputs> = () => {
       reset();
-      dispatch(showModalWindow(false));
+      dispatch(changeTypeModal(null));
    }
 
    return (

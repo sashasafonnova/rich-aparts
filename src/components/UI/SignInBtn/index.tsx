@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 import iconEnterSVG from "./iconEnter.svg";
 
 import { useDispatch } from "react-redux";
-import { showModalWindow } from "../../../redux/slices/singInSlice";
+import { changeTypeModal } from "../../../redux/slices/modalSlice";
 import { showMenuBurger } from "../../../redux/slices/menuSlice";
 
 
@@ -12,7 +12,7 @@ const SignInBtn: React.FC = () => {
    const dispatch = useDispatch();
 
    const onCLick = () => {
-      dispatch(showModalWindow(true));
+      dispatch(changeTypeModal("signInUp"));
       dispatch(showMenuBurger(false));
    }
 

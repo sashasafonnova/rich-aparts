@@ -1,18 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import bookingSlice from "./slices/bookingSlice";
 import menuSlice from "./slices/menuSlice";
-import signInSlice from "./slices/singInSlice";
 import productsSlice from "./slices/productsSlice";
+import modalSlice from "./slices/modalSlice";
+
 
 
 
 export const store = configureStore({
    reducer: {
       menuSlice,
-      signInSlice,
-      bookingSlice,
       productsSlice,
+      modalSlice,
    },
 }) 
 

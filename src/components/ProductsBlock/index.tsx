@@ -41,7 +41,7 @@ const ProductsBlock: React.FC<ProductsBlockProps> = ( {title, text}) => {
                <h2 className={styles.title}>{title}</h2>
                <p className={styles.text}>{text}</p>
                <div className={styles.items}>
-                  {products && products.map((product: ProductsItem) => <CatalogItem product={product} />)}
+                  {products && products.map((product: ProductsItem) => <CatalogItem key={product.id} product={product} />)}
                </div>
             </div>
          </div>

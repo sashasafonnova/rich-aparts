@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./styles.module.css";
 import formImg from './formImg.jpg'
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { changeContentModal, changeTimeOutModal, changeTypeModal } from "../../redux/slices/modalSlice";
 
 
 type Inputs = {
@@ -13,11 +15,22 @@ type Inputs = {
 
 const FormQuestionBlock: React.FC = () => {
 
+   const dispatch = useDispatch();
    const { register, handleSubmit, formState: { errors }, reset } = useForm<Inputs>({ mode: "onBlur" });
 
 
    const onSubmit: SubmitHandler<Inputs> = () => {
       reset();
+
+      const modalContent = {
+         message: {
+            title: "Ваш вопрос успешно отправлен",
+            subtitle: "Наш менеджер свяжется с вами в ближайшее время.",
+         }
+      }
+      dispatch(changeContentModal(modalContent));
+      dispatch(changeTypeModal("formSuccess"));
+      dispatch(changeTimeOutModal(3000));
    }
 
 

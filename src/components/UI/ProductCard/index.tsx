@@ -9,7 +9,7 @@ import iconRoom from '../../../assets/img/card/icons/iconRoom.svg';
 import iconBathroom from '../../../assets/img/card/icons/iconBathroom.svg';
 
 import { useDispatch } from "react-redux";
-import { showModalBooking, chooseLocation } from "../../../redux/slices/bookingSlice";
+import { changeContentModal, changeTypeModal } from "../../../redux/slices/modalSlice";
 
 
 
@@ -35,8 +35,14 @@ type ProductCardProps = {
 const ProductCard: React.FC<ProductCardProps> = ( {product} ) => {
 
    const onClickBooking = (name: string) => {
-      dispatch(showModalBooking(true));
-      dispatch(chooseLocation(name))
+      dispatch(changeTypeModal("booking"));
+
+      const contentModal = {
+         location: {
+            name,
+         }
+      }
+      dispatch(changeContentModal(contentModal))
       
    }
 

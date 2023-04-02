@@ -9,12 +9,13 @@ import ReviewsBlock from "../../components/ReviewsBlock";
 
 
 
+
 const MainPage: React.FC = () => {
 
    const aboutRef = React.useRef<HTMLElement>(null);
 
    const aboutScroll = () => {
-      aboutRef.current && aboutRef.current.scrollIntoView(); 
+      aboutRef.current && aboutRef?.current.scrollIntoView(); 
    }
 
 

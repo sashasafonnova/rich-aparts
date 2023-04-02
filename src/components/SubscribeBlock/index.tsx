@@ -3,6 +3,8 @@ import styles from "./styles.module.css";
 
 
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { changeContentModal, changeTypeModal, changeTimeOutModal } from "../../redux/slices/modalSlice";
 
 
 type Inputs = {
@@ -11,11 +13,23 @@ type Inputs = {
 
 
 const SubscribeBlock: React.FC = () => {
-
+   
+   const dispatch = useDispatch();
    const { register, handleSubmit, formState: { errors }, reset } = useForm<Inputs>({ mode: "onBlur" });
 
    const onSubmit: SubmitHandler<Inputs> = () => {
       reset();
+
+
+      const modalContent = {
+         message: {
+            title: "Рады, что вы с нами!",
+            subtitle: "Остался всего 1 шаг. На ваш электроннный адрес направлено письмо с ссылкой на подтверждение. Пожалуйста, подтвердите подписку",
+         }
+      }
+      dispatch(changeContentModal(modalContent));
+      dispatch(changeTypeModal("formSuccess"));
+      dispatch(changeTimeOutModal(5000));
    }
 
    return (

@@ -55,7 +55,7 @@ const CardSlider: React.FC<CardSliderProps> = ( {imgUrls} ) => {
          <button className={styles.btnPrev} onClick={prevSlide}>←</button>
          <div className={styles.dots}>
             {[...new Array(imgUrls.length)].map((item, index) => (
-            <div 
+            <div key={index}
                onClick={() => moveDot(index)}
                className={slideIndex === index ? styles.dot + " " + styles.dotActive : styles.dot}
             ></div>))}

@@ -9,8 +9,9 @@ import FormQuestionBlock from './components/FormQuestionBlock';
 import SubscribeBlock from './components/SubscribeBlock';
 import Footer from './components/Footer';
 import FooterBottom from './components/FooterBottom';
-import ModalSignIn from './components/ModalSignIn';
-import ModalBooking from './components/ModalBooking';
+import ModalSignIn from './components/Modals/ModalSignIn';
+import ModalBooking from './components/Modals/ModalBooking';
+import ModalSubmited from './components/Modals/ModalSubmited';
 
 import MainPage from './pages/MainPage';
 import CatalogPage from './pages/CatalogPage';
@@ -20,12 +21,11 @@ import NotFoundPage from './pages/NotFoundPage';
 import ApartamentPage from './pages/ProductPage';
 
 
+
 const App: React.FC = () => {
 
-  const modalSignInOpen = useSelector((state: RootState) => state.signInSlice.modalOpen)
-  const modalBookingOpen = useSelector((state: RootState) => state.bookingSlice.modalOpen);
-  const chosenLocation = useSelector((state: RootState) => state.bookingSlice.chosenLocation)
-
+  const typeModal = useSelector((state: RootState) => state.modalSlice.type);
+  
 
   return (
     <div className="App">
@@ -45,8 +45,10 @@ const App: React.FC = () => {
         <SubscribeBlock />
         <Footer />
         <FooterBottom />
-        {modalBookingOpen && <ModalBooking location={chosenLocation}/>}
-        {modalSignInOpen && <ModalSignIn />}
+        {typeModal === "booking" && <ModalBooking/>}
+        {typeModal === "signInUp" && <ModalSignIn />}
+        {typeModal === "formSuccess" && <ModalSubmited />}
+
       </div>
     </div>
   );
