@@ -18,7 +18,7 @@ import CatalogPage from './pages/CatalogPage';
 import BonusesPage from './pages/BonusesPage';
 import ContactsPage from './pages/ContactsPage';
 import NotFoundPage from './pages/NotFoundPage';
-import ApartamentPage from './pages/ProductPage';
+import ProductPage from './pages/ProductPage';
 
 
 
@@ -34,7 +34,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/catalog" element={<CatalogPage />} />
-          <Route path="/catalog/:apartId" element={<ApartamentPage />} />
+          <Route path="/catalog/:apartId" element={<ProductPage />} />
           <Route path="/bonuses" element={<BonusesPage />} />
           <Route path="/contacts" element={<ContactsPage />} />
           <Route path="/*" element={<NotFoundPage />} />

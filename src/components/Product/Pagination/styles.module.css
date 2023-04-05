@@ -1,0 +1,102 @@
+.slider {
+   width: 500px;
+   height: 400px;
+   position: relative;
+   overflow: hidden;
+}
+
+
+.bgImg {
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   object-fit: cover;
+   object-position: bottom;
+   opacity: 0.2;
+   z-index: -10;
+}
+
+
+.img {
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+   object-position: bottom;
+   z-index: 10;
+}
+
+
+
+.btnPrev {
+   width: 25px;
+   height: 25px;
+   color: var(--btn-color);
+   border-radius: 50%;
+   background: #fff;
+   position: absolute;
+   top: 50%;
+   left: 10px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+}
+
+
+.btnNext {
+   width: 25px;
+   height: 25px;
+   color: var(--btn-color);
+   border-radius: 50%;
+   background: #fff;
+   position: absolute;
+   top: 50%;
+   right: 10px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+}
+
+
+
+
+.dots {
+   position: absolute;
+   bottom: 10px;
+   left: 50%;
+   transform: translateX(-50%);
+   display: flex;
+}
+
+.dot {
+   width: 10px;
+   height: 10px;
+   border-radius: 50%;
+   border: 3px solid #f1f1f1;
+   margin: 0 5px;
+   background: #f1f1f1;
+}
+
+
+.dotActive {
+   background: var(--btn-color);
+}
+
+
+
+@media (max-width: 540px) {
+   .slider {
+      width: 350px;
+      height: 260px;
+   }
+}
+
+
+@media (max-width: 380px) {
+   .slider {
+      width: 260px;
+      height: 200px;
+   }
+}

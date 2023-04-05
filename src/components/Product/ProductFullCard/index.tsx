@@ -39,7 +39,7 @@ const ProductFullCard: React.FC<ProductFullCardProps> = ( {product} ) => {
       dispatch(changeContentModal(contentModal))
       
    }
-
+   
 
    return (
       <div className={styles.card}>

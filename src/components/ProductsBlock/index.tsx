@@ -30,7 +30,7 @@ const ProductsBlock: React.FC<ProductsBlockProps> = ( {title, text}) => {
    }, []);
 
 
-   const products: [] | ProductsItem | ProductsItem[] = useSelector((state: RootState) => state.productsSlice.products);
+   const products: null | ProductsItem| ProductsItem[] = useSelector((state: RootState) => state.productsSlice.products);
 
 
 
@@ -41,7 +41,7 @@ const ProductsBlock: React.FC<ProductsBlockProps> = ( {title, text}) => {
                <h2 className={styles.title}>{title}</h2>
                <p className={styles.text}>{text}</p>
                <div className={styles.items}>
-                  {products && products.map((product: ProductsItem) => <CatalogItem key={product.id} product={product} />)}
+                  {Array.isArray(products) && products.map((product: ProductsItem) => <CatalogItem key={product.id} product={product} />)}
                </div>
             </div>
          </div>

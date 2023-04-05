@@ -6,63 +6,72 @@ import ProductReviews from "../../components/Product/ProductReviews";
 import ProductsBlock from "../../components/ProductsBlock";
 import ArrowBack from "../../components/UI/ArrowBack";
 import ProductFullCard from "../../components/Product/ProductFullCard";
-import axios from "axios";
+
+import { fetchProduct, fetchProductReviews } from "../../redux/slices/productPageSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../redux/store";
 
 
 
-const ApartamentPage: React.FC = () => {
 
-   const [fetchStatus, setfetchStatus] = React.useState("loading");
-   
-   const [productInfo, setProductInfo] = React.useState({
-      id: " ",
-      city: " ",
-      name: " ",
-      rooms: 0,
-      details: {
-         square: 0,
-         bathrooms: 0,
-         badrooms: 0,
-      },
-      description: " ",
-      faciliies: [" "],
-      imgUrl: [" "],
-      price: 0
-   });
-   
+const ProductPage: React.FC = () => {
 
+   const dispatch = useDispatch < AppDispatch>();
    const { apartId } = useParams();
 
 
-   const fetchCardInfo = async () => {
 
-      try {
-         const { data } = await axios.get(`https://642701f3d24d7e0de47dc021.mockapi.io/api/rich-aparts/aparts/${apartId}`);
-         setProductInfo(data);
-         setfetchStatus("success")
-      } catch (error) {
-         setfetchStatus("error")
+   const fetchData = async () => {
+      if (apartId){
+         const params = {
+            id: apartId,
+         }
+         
+         const res = await dispatch(fetchProduct(params));
+         
+         if (res.meta.requestStatus === "fulfilled")
+         dispatch(fetchProductReviews(params));
       }
-      
-   }
-     
+   }  
+
 
 
    useEffect(() => {
       window.scrollTo(0, 0);
-      fetchCardInfo();
+      fetchData();
    }, [apartId]);
 
+
+
    
+   const product = useSelector((state: RootState) => state.productPageSlice.product.data);
+   const reviews = useSelector((state: RootState) => state.productPageSlice.reviews.data);
+
+   const fetchStatusProduct = useSelector((state: RootState) => state.productPageSlice.product.fetchStatus);
+   const fetchStatusReviews = useSelector((state: RootState) => state.productPageSlice.reviews.fetchStatus);
+
+
 
    
    const getFetchResult = () => {
-      if (fetchStatus === "error") {
+      if (fetchStatusProduct === "error") {
          return "Ошибка";
-      } else if (fetchStatus === "loading") {
+      } else if (fetchStatusProduct === "loading") {
          return "Идет загрузка";
-      } else if (fetchStatus === "success") {
-         return <ProductFullCard product={productInfo} />
+      } else if (fetchStatusProduct === "success" && product) {
+         return <ProductFullCard product={product} />
+      }
+   }
+
+   
+
+   const getFetchReviews = () => {
+      if ( fetchStatusReviews === "error") {
+         return "Ошибка";
+      } else if ( fetchStatusReviews === "loading") {
+         return "Идет загрузка отзывов";
+      } else if (fetchStatusReviews === "success" && reviews) {
+         return <ProductReviews reviews={reviews} />
       }
    }
   
@@ -75,11 +84,11 @@ const ApartamentPage: React.FC = () => {
             <ArrowBack />
             {getFetchResult()}
          </div>
-         <ProductReviews />
-         <ProductsBlock title="Похожие локации" text="Забронируйте понравившуюся квартиру в один клик"/>
+         {reviews && getFetchReviews()}
+         {/* <ProductsBlock title="Похожие локации" text="Забронируйте понравившуюся квартиру в один клик"/> */}
       </section>
       
    );
 }
 
-export default ApartamentPage;
+export default ProductPage;

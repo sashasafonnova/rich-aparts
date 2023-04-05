@@ -22,37 +22,50 @@ export interface ProductsItem {
 
 
 interface ProductsState {
-   products: ProductsItem[];
+   products: null | ProductsItem | ProductsItem[];
    fetchStatus: 'loading' | 'success' | 'error'
 }
 
 
 
+
 type FetchProductsParams = {
-   limit: number;
-   page: number;
+   limit?: number;
+   page?: number;
+   sorting?: string;
+   city?: string;
+   rooms?: number;
+   date?: string;
 }
 
 
 const initialState: ProductsState = {
    fetchStatus: 'loading',
-   products: [],
+   products: null,
 }
 
 
 
-export const fetchProducts = createAsyncThunk<ProductsItem[], FetchProductsParams>('aparts/fetchAparts', async (params: FetchProductsParams) => {
 
-   const { limit, page } = params;
+
+
+export const fetchProducts = createAsyncThunk<ProductsItem[], FetchProductsParams>('aparts/fetchProducts', async (params: FetchProductsParams) => {
+
+   const { limit, page, city, rooms } = params;
 
    const pageQuery = page ? `page=${page}` : '';
    const limitQuery = limit ? `limit=${limit}` : '';
+   const cityQuery = city ? `city=${city}` : '';
+   const roomsQuery = rooms ? `rooms=${rooms}` : '';
 
 
-   const { data } = await axios.get<ProductsItem[]>(`https://642701f3d24d7e0de47dc021.mockapi.io/api/rich-aparts/aparts?${limitQuery}&${pageQuery}`);
+   const { data } = await axios.get<ProductsItem[]>(`https://642701f3d24d7e0de47dc021.mockapi.io/api/rich-aparts/aparts?${cityQuery}&${roomsQuery}&${limitQuery}&${pageQuery}`);
    return data;
 
 })
+
+
+
 
 
 export const productsSlice = createSlice({
@@ -62,6 +75,7 @@ export const productsSlice = createSlice({
 
 
    extraReducers: (builder) => {
+
       builder.addCase(fetchProducts.fulfilled, (state, action) => {
          state.products = action.payload;
          state.fetchStatus = "success";
@@ -73,6 +87,7 @@ export const productsSlice = createSlice({
 
       builder.addCase(fetchProducts.rejected, (state) => {
          state.fetchStatus = "error";
+         state.products = null;
       })
    },
 

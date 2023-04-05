@@ -57,6 +57,15 @@
 
 
 
+@media (max-width: 860px) {
+   .products {
+      grid-template-columns: repeat(2, 1fr);
+   }
+}
+
+
+
+
 @media (max-width: 780px) {
    .form {
       flex-wrap: wrap;
@@ -83,6 +92,11 @@
    .label {
       margin-bottom: 10px;
    }
+}
 
-   
+
+@media (max-width: 500px) {
+   .products {
+      grid-template-columns: 1fr;
+   }
 }
