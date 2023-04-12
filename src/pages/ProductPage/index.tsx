@@ -6,10 +6,12 @@ import ProductReviews from "../../components/Product/ProductReviews";
 import ProductsBlock from "../../components/ProductsBlock";
 import ArrowBack from "../../components/UI/ArrowBack";
 import ProductFullCard from "../../components/Product/ProductFullCard";
+import Loader from "../../components/UI/Loader";
 
 import { fetchProduct, fetchProductReviews } from "../../redux/slices/productPageSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../redux/store";
+import FetchError from "../../components/UI/FetchError";
 
 
 
@@ -48,33 +50,19 @@ const ProductPage: React.FC = () => {
    const reviews = useSelector((state: RootState) => state.productPageSlice.reviews.data);
 
    const fetchStatusProduct = useSelector((state: RootState) => state.productPageSlice.product.fetchStatus);
-   const fetchStatusReviews = useSelector((state: RootState) => state.productPageSlice.reviews.fetchStatus);
 
 
 
    
    const getFetchResult = () => {
       if (fetchStatusProduct === "error") {
-         return "Ошибка";
+         return <FetchError/>
       } else if (fetchStatusProduct === "loading") {
-         return "Идет загрузка";
+         return <Loader/>;
       } else if (fetchStatusProduct === "success" && product) {
          return <ProductFullCard product={product} />
       }
    }
-
-   
-
-   const getFetchReviews = () => {
-      if ( fetchStatusReviews === "error") {
-         return "Ошибка";
-      } else if ( fetchStatusReviews === "loading") {
-         return "Идет загрузка отзывов";
-      } else if (fetchStatusReviews === "success" && reviews) {
-         return <ProductReviews reviews={reviews} />
-      }
-   }
-  
 
 
 
@@ -84,8 +72,8 @@ const ProductPage: React.FC = () => {
             <ArrowBack />
             {getFetchResult()}
          </div>
-         {reviews && getFetchReviews()}
-         {/* <ProductsBlock title="Похожие локации" text="Забронируйте понравившуюся квартиру в один клик"/> */}
+         {reviews && <ProductReviews reviews={reviews} />}
+         <ProductsBlock title="Похожие локации" text="Забронируйте понравившуюся квартиру в один клик"/>
       </section>
       
    );

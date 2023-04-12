@@ -1,0 +1,119 @@
+.form {
+   display: flex;
+   align-items: center;
+   align-items: flex-end;
+   font-size: 14px;
+   width: 100%;
+   margin-bottom: 40px;
+}
+
+
+
+.formItem {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   margin-right: 20px;
+}
+
+
+.label {
+   text-transform: uppercase;
+   margin-bottom: 20px;
+}
+
+
+
+.cityWrapper, .roomsWrapper {
+   position: relative;
+   
+}
+
+
+.cityBtn, .roomsBtn {
+   background: transparent;
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   padding-left: 12px;
+   min-width: 170px;
+   min-height: 44px;
+   border-radius: 2px;
+   border: 1px solid;
+   border-color: var(--input-border-color);
+   position: relative;
+}
+
+
+.cityContent, .roomsContent{
+   position: absolute;
+   left: 0;
+   top: 52px;
+   z-index: 10;
+   background-color: #fff;
+   min-width: 170px;
+   border-radius: 2px;
+   border: 1px solid;
+   border-color: var(--input-border-color);
+}
+
+
+
+.cityItem, .roomsItem{
+   padding: 10px;
+   cursor: pointer;
+}
+
+
+.activeItem {
+   background-color: var(--decor-color-1);
+}
+
+
+
+.btn {
+   min-height: 44px;
+   min-width: 170px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: var(--btn-color);
+   color: #fff;
+   border-radius: 2px;
+}
+
+
+.btnArrow {
+   position: absolute;
+   top: 18px;
+   right: 10px;
+   max-width: 15px;
+   max-height: 15px;
+}
+
+
+
+
+@media (max-width: 780px) {
+   .form {
+      flex-wrap: wrap;
+   }
+}
+
+
+@media (max-width: 650px) {
+   .form {
+      flex-direction: column;
+      align-items: flex-start;
+   }
+
+   .formItem {
+      padding-right: 0px;
+      margin-bottom: 20px;
+   }
+
+
+   .label {
+      margin-bottom: 10px;
+   }
+}

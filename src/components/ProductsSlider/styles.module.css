@@ -1,0 +1,100 @@
+.slider {
+   position: relative;
+   display: grid;
+   gap: 20px;
+   grid-template-columns: repeat(3, 1fr);
+   width: 100%;
+}
+
+
+
+
+.btnSlider {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+   width: 25px;
+   height: 25px;
+   border: 1px solid;
+   border-color: var(--btn-color);
+   color: var(--btn-color);
+   border-radius: 50%;
+   background: #fff;
+}
+
+
+
+.btnPrev {
+   position: absolute;
+   top: 50%;
+   left: -40px;
+}
+
+
+.btnNext {
+   position: absolute;
+   top: 50%;
+   right: -40px;
+   display: flex;
+}
+
+
+
+.dots {
+   position: absolute;
+   bottom: -30px;
+   left: 50%;
+   transform: translateX(-50%);
+   display: flex;
+}
+
+
+
+.dot {
+   width: 10px;
+   height: 10px;
+   border-radius: 50%;
+   border: 3px solid #f1f1f1;
+   margin: 0 5px;
+   background: #f1f1f1;
+}
+
+
+.dotActive {
+   background: var(--btn-color);
+}
+
+
+
+/* @media (max-width: 640px) {
+   .slider {
+      width: 350px;
+      height: 470px;
+   }
+}
+
+
+@media (max-width: 460px) {
+   .slider {
+      width: 260px;
+      height: 520px;
+   }
+} */
+
+
+
+@media (max-width: 780px) {
+
+   .slider {
+      grid-template-columns: repeat(2, 1fr);
+   }
+}
+
+
+
+@media (max-width: 520px) {
+   .slider {
+         grid-template-columns: 1fr;
+      }
+}

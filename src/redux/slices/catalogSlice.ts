@@ -10,7 +10,7 @@ type CatalogState = {
    sorting: string,
    pagination: {
       page: number,
-      limit: number
+      limit: number,
    }
 }
 
@@ -18,13 +18,13 @@ type CatalogState = {
 const initialState: CatalogState = {
    filter: {
       city: "",
-      rooms: 2,
+      rooms: 0,
       date: "",
    },
    sorting: "price",
    pagination: {
       page: 1,
-      limit: 6
+      limit: 10,
    }
 }
 

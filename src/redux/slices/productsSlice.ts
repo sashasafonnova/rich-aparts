@@ -29,7 +29,7 @@ interface ProductsState {
 
 
 
-type FetchProductsParams = {
+interface FetchProductsParams {
    limit?: number;
    page?: number;
    sorting?: string;
@@ -55,8 +55,10 @@ export const fetchProducts = createAsyncThunk<ProductsItem[], FetchProductsParam
 
    const pageQuery = page ? `page=${page}` : '';
    const limitQuery = limit ? `limit=${limit}` : '';
-   const cityQuery = city ? `city=${city}` : '';
+   const cityQuery = city && city !== "Все" ? `city=${city}` : "";
    const roomsQuery = rooms ? `rooms=${rooms}` : '';
+
+   console.log(cityQuery)
 
 
    const { data } = await axios.get<ProductsItem[]>(`https://642701f3d24d7e0de47dc021.mockapi.io/api/rich-aparts/aparts?${cityQuery}&${roomsQuery}&${limitQuery}&${pageQuery}`);

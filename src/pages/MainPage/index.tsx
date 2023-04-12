@@ -2,9 +2,10 @@ import React, { useEffect } from "react";
 
 import AboutBlock from "../../components/AboutBlock";
 import AdvantagesBlock from "../../components/AdvantagesBlock";
-import ApartamentsBlock from "../../components/ProductsBlock";
+import ProductsBlock from "../../components/ProductsBlock";
 import PromoBlock from "../../components/PromoBlock";
 import ReviewsBlock from "../../components/ReviewsBlock";
+import ShowCataloBtn from "../../components/UI/ShowCatalogBtn";
 
 
 
@@ -27,7 +28,9 @@ const MainPage: React.FC = () => {
    return (
       <>
          <PromoBlock aboutScroll={aboutScroll}/>
-         <ApartamentsBlock title={"Cейчас свободны"} text="Забронируйте понравившуюся квартиру в один клик."/>
+         <ProductsBlock title="Cейчас свободны" text="Забронируйте понравившуюся квартиру в один клик.">
+            <ShowCataloBtn/>
+         </ProductsBlock>
          <AboutBlock aboutRef={aboutRef}/>
          <AdvantagesBlock />
          <ReviewsBlock />

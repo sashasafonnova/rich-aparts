@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles.module.css";
 
-
+import { Link } from "react-router-dom";
 
 const FooterBottom: React.FC = () => {
 
@@ -11,9 +11,9 @@ const FooterBottom: React.FC = () => {
             <div className={styles.content}>
                <h3 className={styles.copyright}>© Copyright 2022</h3>
                <ul className={styles.documents}>
-                  <li className={styles.document}>Политика конфиденциальности</li>
-                  <li className={styles.document}>Cookies</li>
-                  <li className={styles.document}>Терминология</li>
+                  <Link to="police-conf" className={styles.document}>Политика конфиденциальности</Link>
+                  <Link to="police-cookies" className={styles.document}>Cookies</Link>
+                  <Link to="terminology" className={styles.document}>Терминология</Link>
                </ul>
             
             </div>

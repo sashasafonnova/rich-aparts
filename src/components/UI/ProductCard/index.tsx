@@ -46,7 +46,7 @@ const ProductCard: React.FC<ProductCardProps> = ( {product} ) => {
       
    }
 
-
+   console.log(product)
    const dispatch = useDispatch();
 
    return (

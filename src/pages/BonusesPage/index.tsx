@@ -16,7 +16,7 @@ const BonusesPage: React.FC = () => {
    }, []);
 
    return (
-      <section>
+      <section className={styles.block}>
          <div className="container">
             <ArrowBack />
             <h1 className={styles.title}>Бонусная программа</h1>

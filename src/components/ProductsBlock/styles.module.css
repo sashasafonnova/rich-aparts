@@ -1,5 +1,5 @@
 .block {
-   padding: 0px 0px 120px;
+   padding: 0px 0px 0px;
 }
 
 
@@ -15,11 +15,9 @@
 }
 
 
-.items {
-   display: grid;
-   grid-template-columns: repeat(3, 1fr);
-   gap: 30px;
-   padding-bottom: 20px;
-   overflow-x: auto;
-}
 
+.catalogBtn {
+   padding: 80px 0px 40px;
+   display: flex;
+   justify-content: center;
+}
