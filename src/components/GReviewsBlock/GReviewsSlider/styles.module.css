@@ -1,0 +1,51 @@
+.reviews {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 30px;
+   padding: 20px 0px;
+}
+
+
+
+.btns {
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+   padding: 0px 10px;
+}
+
+
+.btn {
+   background: transparent;
+   padding: 3px 6px;
+   border: 1px solid var(--text-color);
+   border-radius: 2px;
+}
+
+
+.btn:disabled {
+   opacity: 0.4;
+}
+
+
+.btnPrev {
+   margin-right: 5px;
+}
+
+
+
+
+@media (max-width: 850px) {
+
+   .reviews {
+      grid-template-columns: repeat(2, 1fr);
+   }
+}
+
+
+
+@media (max-width: 560px) {
+   .reviews {
+      grid-template-columns: 1fr;
+   }
+}

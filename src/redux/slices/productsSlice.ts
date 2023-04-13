@@ -58,8 +58,6 @@ export const fetchProducts = createAsyncThunk<ProductsItem[], FetchProductsParam
    const cityQuery = city && city !== "Все" ? `city=${city}` : "";
    const roomsQuery = rooms ? `rooms=${rooms}` : '';
 
-   console.log(cityQuery)
-
 
    const { data } = await axios.get<ProductsItem[]>(`https://642701f3d24d7e0de47dc021.mockapi.io/api/rich-aparts/aparts?${cityQuery}&${roomsQuery}&${limitQuery}&${pageQuery}`);
    return data;

@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
                         </li>
                         <li className={styles.contact}>
                            <img src={iconEmail} alt="/" />
-                           <a href="mailto: mail@mail.com">mail@rich-aparts.com</a>
+                           <a href="mailto: mail@mail.com">rich-aparts@mail.ru</a>
                         </li>
                      </ul>
                   </div>

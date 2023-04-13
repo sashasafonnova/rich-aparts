@@ -19,7 +19,7 @@ const ModalSignIn: React.FC = () => {
    const onClickModal = () => {
       dispatch(changeTypeModal(null));
       }
-   const onClickModalWindow = (event: any) => {
+   const onClickModalWindow = (event: React.MouseEvent<HTMLDivElement>) => {
       event.stopPropagation();
    }
 

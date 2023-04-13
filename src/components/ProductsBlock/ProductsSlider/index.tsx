@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./styles.module.css";
-import { ProductsItem } from "../../redux/slices/productsSlice";
-import ProductCard from "../UI/ProductCard";
+import { ProductsItem } from "../../../redux/slices/productsSlice";
+import ProductCard from "../../UI/ProductCard";
 
 
 

@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { ProductsItem } from "./productsSlice";
 
 
-type ProductReview = {
+interface ProductReview {
    id: string;
    date: string;
    name: string;
@@ -19,7 +19,7 @@ export interface ProductReviewsItem {
 
 
 
-type ProductPageState = {
+interface ProductPageState {
    product: {
       fetchStatus: string,
       data: null | ProductsItem,
@@ -87,6 +87,7 @@ export const productPageSlice = createSlice({
          state.product.fetchStatus = "success";
       })
       builder.addCase(fetchProduct.pending, (state) => {
+         state.reviews.data = null;
          state.product.fetchStatus = "loading";
       })
       builder.addCase(fetchProduct.rejected, (state) => {

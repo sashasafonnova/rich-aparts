@@ -4,7 +4,7 @@ import AboutBlock from "../../components/AboutBlock";
 import AdvantagesBlock from "../../components/AdvantagesBlock";
 import ProductsBlock from "../../components/ProductsBlock";
 import PromoBlock from "../../components/PromoBlock";
-import ReviewsBlock from "../../components/ReviewsBlock";
+import GReviewsBlock from "../../components/GReviewsBlock";
 import ShowCataloBtn from "../../components/UI/ShowCatalogBtn";
 
 
@@ -33,7 +33,7 @@ const MainPage: React.FC = () => {
          </ProductsBlock>
          <AboutBlock aboutRef={aboutRef}/>
          <AdvantagesBlock />
-         <ReviewsBlock />
+         <GReviewsBlock />
       </>
    );
 }

@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { changeContentModal, changeTimeOutModal, changeTypeModal } from "../../redux/slices/modalSlice";
 
 
-type Inputs = {
+interface Inputs {
    name: string,
    tel: string,
    textarea: string,

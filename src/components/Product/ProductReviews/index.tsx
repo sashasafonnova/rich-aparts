@@ -55,13 +55,10 @@ const ProductReviews: React.FC<ProductReviewsProps> = ( { reviews } ) => {
                })}
             </ul>
 
-            <div className={styles.btns}>
-               {!reviewsPages.includes(0) && (
-                  <button className={styles.btnPrev} onClick={prevPageReviews}>{"<"}</button>)}
-
-               {dataReviews && !reviewsPages.includes(dataReviews.length - 1) && (
-                  <button className={styles.btnNext} onClick={nextPageReviews}>{">"}</button>)}
-            </div>
+            {dataReviews && dataReviews.length !== reviewsPages.length && (<div className={styles.btns}>
+               <button disabled={reviewsPages.includes(0)} className={styles.btn + " " + styles.btnPrev} onClick={prevPageReviews}>{"<"}</button>
+               <button disabled={reviewsPages.includes(dataReviews.length - 1)} className={styles.btn} onClick={nextPageReviews}>{">"}</button>
+            </div>)}
          </div>
       </section>
    );

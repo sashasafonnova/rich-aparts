@@ -11,7 +11,7 @@ type FormSignInProps = {
    setFormShowing: (formShowing: string) => void;
 }
 
-type Inputs = {
+interface Inputs {
    login: string,
    password: string,
 };
@@ -53,7 +53,7 @@ const FormSignIn: React.FC<FormSignInProps> = ({ setFormShowing } ) => {
                <input 
                   className={styles.input} 
                   id="password" 
-                  type="text"
+                  type="password"
                   {...register("password", {
                      required: "*обязательное поле",
                      pattern: {

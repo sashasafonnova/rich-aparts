@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 
-type ModalSliceState = {
+interface ModalSliceState {
    type: string | null,
    content?: {
       message?: {

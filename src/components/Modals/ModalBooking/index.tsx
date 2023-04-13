@@ -11,7 +11,7 @@ import { RootState } from "../../../redux/store";
 
 
 
-type Inputs = {
+interface Inputs {
    name: string,
    tel: string,
    email: string,
@@ -26,7 +26,7 @@ const ModalBooking: React.FC =  () => {
 
 
 
-   const stopClick = (event: any) => {
+   const stopClick = (event: React.MouseEvent<HTMLDivElement>) => {
       event.stopPropagation();
    }
 

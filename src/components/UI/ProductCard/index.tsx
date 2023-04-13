@@ -13,7 +13,7 @@ import { changeContentModal, changeTypeModal } from "../../../redux/slices/modal
 
 
 
-type ProductCardProps = {
+interface ProductCardProps {
    product: {
       id: string;
       city: string;
@@ -46,7 +46,7 @@ const ProductCard: React.FC<ProductCardProps> = ( {product} ) => {
       
    }
 
-   console.log(product)
+
    const dispatch = useDispatch();
 
    return (

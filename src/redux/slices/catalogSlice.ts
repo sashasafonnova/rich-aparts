@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 
-type CatalogState = {
+interface CatalogState {
    filter: {
       city: string,
       rooms: number,

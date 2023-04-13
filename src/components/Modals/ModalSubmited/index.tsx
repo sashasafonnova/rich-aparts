@@ -16,7 +16,7 @@ const ModalSubmited: React.FC =  () => {
 
 
 
-   const stopClick = (event: any) => {
+   const stopClick = (event: React.MouseEvent<HTMLDivElement>) => {
       event.stopPropagation();
    }
    

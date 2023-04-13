@@ -6,11 +6,13 @@ import debounce from 'lodash.debounce';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts, ProductsItem } from "../../redux/slices/productsSlice";
 import { AppDispatch, RootState } from "../../redux/store";
-import ProductsSlider from "../ProductsSlider";
+import ProductsSlider from "./ProductsSlider";
+import FetchError from "../UI/FetchError";
+import Loader from "../UI/Loader";
 
 
 
-type ProductsBlockProps = {
+interface ProductsBlockProps {
    title: string | null,
    text: string | null,
    children?: ReactNode,
@@ -22,7 +24,27 @@ const ProductsBlock: React.FC<ProductsBlockProps> = ( {title, text, children}) =
 
    const dispatch = useDispatch<AppDispatch>();
    const [windowSize, setWindowSize] = useState(window.innerWidth);
+   const products: null | ProductsItem | ProductsItem[] = useSelector((state: RootState) => state.productsSlice.products);
 
+
+   const fetchStatus: string = useSelector((state: RootState) => state.productsSlice.fetchStatus);
+
+
+   const getFetchResult = () => {
+      if (fetchStatus === "error") {
+         return <FetchError />
+      } else if (fetchStatus === "loading") {
+         return <Loader />;
+      } else if (fetchStatus === "success" && Array.isArray(products)) {
+         return (
+            <div className={styles.items}>
+               {windowSize <= 520 && <ProductsSlider products={products} sliderLength={[0]} />}
+               {windowSize > 520 && windowSize <= 780 && <ProductsSlider products={products} sliderLength={[0, 1]} />}
+               {windowSize > 780 && <ProductsSlider products={products} sliderLength={[0, 1, 2]} />}
+            </div>
+         )
+   }
+}
 
    const onChangeWindowSize = React.useCallback(
       debounce(() => {
@@ -47,8 +69,6 @@ const ProductsBlock: React.FC<ProductsBlockProps> = ( {title, text, children}) =
    }, []);
 
 
-   const products: null | ProductsItem | ProductsItem[] = useSelector((state: RootState) => state.productsSlice.products);
-   const isArray = Array.isArray(products);
 
 
 
@@ -58,11 +78,7 @@ const ProductsBlock: React.FC<ProductsBlockProps> = ( {title, text, children}) =
             <div>
                <h2 className={styles.title}>{title}</h2>
                <p className={styles.text}>{text}</p>
-               <div className={styles.items}>
-                  {isArray && windowSize <= 520 && <ProductsSlider products={products} sliderLength={[0]} />}
-                  {isArray && windowSize > 520 && windowSize <= 780 && <ProductsSlider products={products} sliderLength={[0, 1]} />}
-                  {isArray && windowSize > 780 && <ProductsSlider products={products} sliderLength={[0,1,2]}/>}
-               </div>
+               {getFetchResult()}
                <div className={styles.catalogBtn}>{children}
                </div>
             </div>

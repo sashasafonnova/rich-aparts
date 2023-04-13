@@ -10,7 +10,7 @@ import { changeCity, changeRooms } from "../../redux/slices/catalogSlice";
 import { AppDispatch} from "../../redux/store";
 
 
-type IOptionValues = {
+interface IOptionValues {
    filterCity: string;
    filterRooms: number;
 }
@@ -116,7 +116,7 @@ const CatalogFilter: React.FC = () => {
                   <div className={styles.cityContent}>
                      <ul >
                      {filterCityList.map(item => (
-                        <li className={styleCityItem(item.value)} onClick={() => clickCityOptions(item.value)}>{item.name}</li>
+                        <li className={styleCityItem(item.value)} key={item.name} onClick={() => clickCityOptions(item.value)}>{item.name}</li>
                      ))}
                   </ul>
                </div>)}
@@ -133,7 +133,7 @@ const CatalogFilter: React.FC = () => {
                   <div className={styles.roomsContent}>
                      <ul >
                         {filterRoomsCity.map(item => (
-                           <li className={styleRoomsItem(item.value)} onClick={() => clickRoomsOptions(item.value)}>{item.name}</li>
+                           <li className={styleRoomsItem(item.value)} key={item.name} onClick={() => clickRoomsOptions(item.value)}>{item.name}</li>
                         ))}    
                      </ul>
                   </div>)}

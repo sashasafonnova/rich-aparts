@@ -2,7 +2,8 @@ import React from "react";
 import styles from "./styles.module.css";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { changeTypeModal } from "../../../redux/slices/modalSlice";
+import { changeContentModal, changeTimeOutModal, changeTypeModal } from "../../../redux/slices/modalSlice";
+
 
 
 
@@ -11,7 +12,7 @@ type FormSignUpProps = {
 }
 
 
-type Inputs = {
+interface Inputs {
    login: string,
    email: string;
    password: string,
@@ -26,7 +27,16 @@ const FormSignUp: React.FC<FormSignUpProps> = ({ setFormShowing } ) => {
 
    const onSubmit: SubmitHandler<Inputs> = () => {
       reset();
-      dispatch(changeTypeModal(null));
+
+      const modalContent = {
+         message: {
+            title: "Вы успешно зарегистрированы",
+            subtitle: "Остался всего 1 шаг. На ваш электроннный адрес направлено письмо с ссылкой на подтверждение. Пожалуйста, подтвердите регистрацию",
+         }
+      }
+      dispatch(changeContentModal(modalContent));
+      dispatch(changeTypeModal("formSuccess"));
+      dispatch(changeTimeOutModal(5000));
    }
 
    return (
@@ -73,7 +83,7 @@ const FormSignUp: React.FC<FormSignUpProps> = ({ setFormShowing } ) => {
                <input
                   className={styles.input}
                   id="password"
-                  type="text"
+                  type="password"
                   placeholder="латинские буквы и цифры"
                   {...register("password", {
                      required: "*обязательное поле",
